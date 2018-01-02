@@ -1,0 +1,19 @@
+{
+    "RequestId": "ssssddddddzzzzzmmmmmmm",
+    "ResourceRecordSet": {
+        "ResourceRecordSetId": "1v8xa5CHCGCe6HcY",
+        "Name": "smoke.zhangmin-vpc.name.",
+        "Type": "A",
+        "TTL": 100,
+        "Policy": "weight",
+        "Weight": 60,
+        "Status": "INSYNC",
+        "Comment": "smoke weight",
+        "ResourceRecords": [
+            "127.0.0.6",
+            "127.0.0.7"
+        ],
+        "CreateAt": "2018-01-02T07:31:53.000Z",
+        "UpdateAt": "2018-01-02T07:31:53.000Z"
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "TTL": 100,
+  "Policy": "weight",
+  "Weight": 60,
+  "Comment": "my update rrset",
+  "ResourceRecords": [
+      "127.0.0.6",
+      "127.0.0.8"
+  ]
+}
