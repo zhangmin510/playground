@@ -1,0 +1,182 @@
+
+=====================================
+2018-01-03 12:13:14 0x7f36e6699700 INNODB MONITOR OUTPUT
+=====================================
+Per second averages calculated from the last 21 seconds
+-----------------
+BACKGROUND THREAD
+-----------------
+srv_master_thread loops: 1190 srv_active, 0 srv_shutdown, 66404 srv_idle
+srv_master_thread log flush and writes: 67555
+----------
+SEMAPHORES
+----------
+OS WAIT ARRAY INFO: reservation count 101908
+OS WAIT ARRAY INFO: signal count 85082
+RW-shared spins 0, rounds 25575, OS waits 10833
+RW-excl spins 0, rounds 144064, OS waits 3572
+RW-sx spins 533, rounds 12209, OS waits 129
+Spin rounds per wait: 25575.00 RW-shared, 144064.00 RW-excl, 22.91 RW-sx
+------------------------
+LATEST DETECTED DEADLOCK
+------------------------
+2018-01-03 12:02:07 0x7f36e6860700
+*** (1) TRANSACTION:
+TRANSACTION 94363, ACTIVE 0 sec inserting
+mysql tables in use 1, locked 1
+LOCK WAIT 4 lock struct(s), heap size 1136, 3 row lock(s)
+MySQL thread id 193, OS thread handle 139873772238592, query id 315601 172.17.0.1 root update
+INSERT INTO `dns_hosted_zone_quota`(`tenant_id`, `min_ttl`, `used`, `quota`, `create_time`, `update_time`) VALUES('perf-tenant-1514980896-4-3', 600, 1, 500, '2018-01-03 20:01:36', '2018-01-03 20:01:36')
+*** (1) WAITING FOR THIS LOCK TO BE GRANTED:
+RECORD LOCKS space id 114 page no 25 n bits 288 index PRIMARY of table `dns-server`.`dns_hosted_zone_quota` trx id 94363 lock_mode X locks gap before rec insert intention waiting
+Record lock, heap no 218 PHYSICAL RECORD: n_fields 8; compact format; info bits 0
+ 0: len 26; hex 706572662d74656e616e742d313531343938303839362d352d33; asc perf-tenant-1514980896-5-3;;
+ 1: len 6; hex 000000017098; asc     p ;;
+ 2: len 7; hex f00000025d0110; asc     ]  ;;
+ 3: len 4; hex 80000258; asc    X;;
+ 4: len 4; hex 80000001; asc     ;;
+ 5: len 4; hex 800001f4; asc     ;;
+ 6: len 4; hex 5a4d36a0; asc ZM6 ;;
+ 7: len 4; hex 5a4d36a0; asc ZM6 ;;
+
+*** (2) TRANSACTION:
+TRANSACTION 94366, ACTIVE 0 sec inserting
+mysql tables in use 1, locked 1
+3 lock struct(s), heap size 1136, 2 row lock(s)
+MySQL thread id 191, OS thread handle 139873772504832, query id 315611 172.17.0.1 root update
+INSERT INTO `dns_hosted_zone_quota`(`tenant_id`, `min_ttl`, `used`, `quota`, `create_time`, `update_time`) VALUES('perf-tenant-1514980896-3-4', 600, 1, 500, '2018-01-03 20:01:36', '2018-01-03 20:01:36')
+*** (2) HOLDS THE LOCK(S):
+RECORD LOCKS space id 114 page no 25 n bits 288 index PRIMARY of table `dns-server`.`dns_hosted_zone_quota` trx id 94366 lock_mode X locks gap before rec
+Record lock, heap no 218 PHYSICAL RECORD: n_fields 8; compact format; info bits 0
+ 0: len 26; hex 706572662d74656e616e742d313531343938303839362d352d33; asc perf-tenant-1514980896-5-3;;
+ 1: len 6; hex 000000017098; asc     p ;;
+ 2: len 7; hex f00000025d0110; asc     ]  ;;
+ 3: len 4; hex 80000258; asc    X;;
+ 4: len 4; hex 80000001; asc     ;;
+ 5: len 4; hex 800001f4; asc     ;;
+ 6: len 4; hex 5a4d36a0; asc ZM6 ;;
+ 7: len 4; hex 5a4d36a0; asc ZM6 ;;
+
+*** (2) WAITING FOR THIS LOCK TO BE GRANTED:
+RECORD LOCKS space id 114 page no 25 n bits 288 index PRIMARY of table `dns-server`.`dns_hosted_zone_quota` trx id 94366 lock_mode X locks gap before rec insert intention waiting
+Record lock, heap no 218 PHYSICAL RECORD: n_fields 8; compact format; info bits 0
+ 0: len 26; hex 706572662d74656e616e742d313531343938303839362d352d33; asc perf-tenant-1514980896-5-3;;
+ 1: len 6; hex 000000017098; asc     p ;;
+ 2: len 7; hex f00000025d0110; asc     ]  ;;
+ 3: len 4; hex 80000258; asc    X;;
+ 4: len 4; hex 80000001; asc     ;;
+ 5: len 4; hex 800001f4; asc     ;;
+ 6: len 4; hex 5a4d36a0; asc ZM6 ;;
+ 7: len 4; hex 5a4d36a0; asc ZM6 ;;
+
+*** WE ROLL BACK TRANSACTION (2)
+------------
+TRANSACTIONS
+------------
+Trx id counter 95307
+Purge done for trx's n:o < 95303 undo n:o < 0 state: running but idle
+History list length 930
+LIST OF TRANSACTIONS FOR EACH SESSION:
+---TRANSACTION 421349634213280, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634212368, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634208720, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634207808, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634206896, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634205984, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634205072, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634204160, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634203248, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634202336, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634201424, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634211456, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634210544, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+---TRANSACTION 421349634209632, not started
+0 lock struct(s), heap size 1136, 0 row lock(s)
+--------
+FILE I/O
+--------
+I/O thread 0 state: waiting for completed aio requests (insert buffer thread)
+I/O thread 1 state: waiting for completed aio requests (log thread)
+I/O thread 2 state: waiting for completed aio requests (read thread)
+I/O thread 3 state: waiting for completed aio requests (read thread)
+I/O thread 4 state: waiting for completed aio requests (read thread)
+I/O thread 5 state: waiting for completed aio requests (read thread)
+I/O thread 6 state: waiting for completed aio requests (write thread)
+I/O thread 7 state: waiting for completed aio requests (write thread)
+I/O thread 8 state: waiting for completed aio requests (write thread)
+I/O thread 9 state: waiting for completed aio requests (write thread)
+Pending normal aio reads: [0, 0, 0, 0] , aio writes: [0, 0, 0, 0] ,
+ ibuf aio reads:, log i/o's:, sync i/o's:
+Pending flushes (fsync) log: 0; buffer pool: 0
+585 OS file reads, 74275 OS file writes, 48600 OS fsyncs
+0.00 reads/s, 0 avg bytes/read, 0.00 writes/s, 0.00 fsyncs/s
+-------------------------------------
+INSERT BUFFER AND ADAPTIVE HASH INDEX
+-------------------------------------
+Ibuf: size 1, free list len 0, seg size 2, 0 merges
+merged operations:
+ insert 0, delete mark 0, delete 0
+discarded operations:
+ insert 0, delete mark 0, delete 0
+Hash table size 34673, node heap has 6 buffer(s)
+Hash table size 34673, node heap has 1 buffer(s)
+Hash table size 34673, node heap has 0 buffer(s)
+Hash table size 34673, node heap has 1 buffer(s)
+Hash table size 34673, node heap has 3 buffer(s)
+Hash table size 34673, node heap has 4 buffer(s)
+Hash table size 34673, node heap has 1 buffer(s)
+Hash table size 34673, node heap has 0 buffer(s)
+0.00 hash searches/s, 0.00 non-hash searches/s
+---
+LOG
+---
+Log sequence number 739671177
+Log flushed up to   739671177
+Pages flushed up to 739671177
+Last checkpoint at  739671168
+0 pending log flushes, 0 pending chkp writes
+44390 log i/o's done, 0.00 log i/o's/second
+----------------------
+BUFFER POOL AND MEMORY
+----------------------
+Total large memory allocated 137428992
+Dictionary memory allocated 610199
+Buffer pool size   8191
+Free buffers       6995
+Database pages     1180
+Old database pages 415
+Modified db pages  0
+Pending reads 0
+Pending writes: LRU 0, flush list 0, single page 0
+Pages made young 0, not young 0
+0.00 youngs/s, 0.00 non-youngs/s
+Pages read 432, created 748, written 28088
+0.00 reads/s, 0.00 creates/s, 0.00 writes/s
+No buffer pool page gets since the last printout
+Pages read ahead 0.00/s, evicted without access 0.00/s, Random read ahead 0.00/s
+LRU len: 1180, unzip_LRU len: 0
+I/O sum[0]:cur[0], unzip sum[0]:cur[0]
+--------------
+ROW OPERATIONS
+--------------
+0 queries inside InnoDB, 0 queries in queue
+0 read views open inside InnoDB
+Process ID=1, Main thread ID=139873579161344, state: sleeping
+Number of rows inserted 38545, updated 54583, deleted 16781, read 26298083
+0.00 inserts/s, 0.00 updates/s, 0.00 deletes/s, 0.00 reads/s
+----------------------------
+END OF INNODB MONITOR OUTPUT
+============================

@@ -1,6 +1,3 @@
--- example HTTP POST script which demonstrates setting the
--- HTTP method, body, and adding a header
-
 local time  = os.time()
 local count = 1
 
@@ -22,7 +19,8 @@ function request()
 	local path = prefix .. zone
 	local headers = {}
 	headers["Content-Type"] = "application/json"
-	headers["X-Product-Id"] = string.format("perf-tenant-%s-%d-%d", time, id, count)
+	-- headers["X-Product-Id"] = string.format("perf-tenant-%s-%d-%d", time, id, count)
+	headers["X-Product-Id"] = '1e94259bc0024a87966fa8aa82077e75'
 
 	count = count + 1
 
