@@ -9,21 +9,27 @@ function dump(o)
 end
 
 function setup(thread)
+	print("setup-start")
 	thread:set("data", {})
+	print("setup-start")
 end
 
 function init(args)
-	print("init")
+	print("init-start")
 	dump(args)
+	print("init-end")
 end
 
 function request()
+	print("request-start")
 	local headers = {};
 	headers["x-product-id"] = "1e94259bc0024a87966fa8aa82077e75"
+	print("request-end")
 	return wrk.format(nil, nil, headers)
 end
 
 function response(status, headers, body)
+	print("response-start")
 	if status == 200 then
 		resp = cjson.decode(body)
 		-- print("requestId: " .. resp.RequestId);
@@ -33,13 +39,15 @@ function response(status, headers, body)
 		-- f:write(resp.RequestId .. "\n")
 		-- f:close()
 		dump(data)
+	print("response-end")
 	end
 
 end	
 
 function done(summary, latency, requests)
-	print("done")
+	print("done-start")
 	dump(data)
+	print("done-end")
 end
 
 
