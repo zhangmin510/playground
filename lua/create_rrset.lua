@@ -3,7 +3,7 @@
 -- local cjson = require "cjson"
 local time  = os.time()
 local count = 1
-
+local addrs = nil
 
 function read_from_file(file)
 	f = io.open(file)
@@ -27,13 +27,28 @@ function setup(thread)
 	-- set thread variables
 	thread:set("id", count)
 	count = count + 1
+
+	-- choose random server addr
+	if not addrs then
+		addrs = wrk.lookup(wrk.host, wrk.port or '5353')
+		for i = #addrs, 1, -1 do
+			-- check connectivity
+			if not wrk.connect(addrs[i]) then
+				table.remove(addrs, i)
+			end
+		end
+	end
+	-- set thread server addr
+	thread.addr = addrs[math.random(#addrs)]
+
 end
 
 -- invoke before each request
 function init()
 	-- thread data
+	local msg = "thread %d created, addr %s"
+	print(msg:format(id, wrk.thread.addr))
 	tenants, zones, names = read_from_file("tenant_zone.txt")
-	print(string.format("thread %d created", id))
 end
 
 function delay()
@@ -72,8 +87,3 @@ end
 -- 		-- table.insert(ids, id)
 -- 	end
 -- end	
-
-function done(summary, latency, requests)
-
-end
-
