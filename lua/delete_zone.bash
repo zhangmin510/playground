@@ -6,7 +6,7 @@ then
 fi
 tenantId=$1
 zoneId=$2
-Host=127.0.0.1
+host=127.0.0.1
 curl -X GET \
   "http://$host:5353/dns?Version=2017-12-12&Action=DeleteHostedZone&HostedZoneId=$zoneId&ForceDelete=true" \
   -H "X-Product-Id: $tenantId" \

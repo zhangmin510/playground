@@ -1,4 +1,4 @@
--- local cjson = require ("cjson")
+local cjson = require ("cjson")
 local time = os.time()
 local count = 1
 -- all threads data table, save thread data to this table
@@ -109,7 +109,7 @@ function response(status, headers, body)
 		io.write(body)
 		-- resp = cjson.decode(body)
 		-- print("requestId: " .. resp.RequestId);
-		-- data = thread:get("data")	
+		-- data = thread:get("data")
 		-- table.insert(data, resp.RequestId)
 		-- local f = io.open("rrset_ids", "a")
 		-- f:write(resp.RequestId .. "\n")
@@ -120,7 +120,7 @@ function response(status, headers, body)
 		-- wrk.thread:stop()
 	end
 	print("response-end")
-end	
+end
 
 function done(summary, latency, requests)
 	print("done-start")
